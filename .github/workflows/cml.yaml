@@ -12,4 +12,14 @@ jobs:
       - name: cml-run
         env: 
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "Hello World!"
+        run: |
+
+          pip install -r requirements.txt
+          python train.py
+
+          cat metrics.txt >> report.md
+          echo "![](./plot.png)" >> report.md
+          cml comment create report.md
+      
+          # echo "Hello World!"
+
