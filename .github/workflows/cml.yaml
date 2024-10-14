@@ -3,7 +3,11 @@ on: [push]
 jobs:
   my-cml:
     runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
     steps: 
-      - name: my-step
+      - uses: actions/checkout@v2
+      - name: cml-run
+        env: 
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: echo "Hello World!"
             
