@@ -11,7 +11,7 @@ jobs:
       - uses: iterative/setup-cml@v2
       - name: cml-run
         env: 
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
 
           pip install -r requirements.txt
